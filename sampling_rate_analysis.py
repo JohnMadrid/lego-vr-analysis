@@ -31,18 +31,19 @@ def analyze_sampling_rate(data, time_column, data_name):
             print(f"Warning: Could not convert {time_column} to datetime format")
             return None
     
-    # Calculate time differences
-    time_diffs = data[time_column].diff().dropna()
-    
-    # Convert to seconds if needed
-    if time_diffs.dtype == 'timedelta64[ns]':
-        time_diffs_seconds = time_diffs.dt.total_seconds()
+    # Calculate elapsed time in seconds since the beginning of the recording
+    if pd.api.types.is_integer_dtype(data[time_column]):
+        # If timestamp is in nanoseconds, convert to seconds
+        data['time'] = (data[time_column] - data[time_column].iloc[0]) / 1e9
     else:
-        # Assume it's already in seconds or convert from nanoseconds
-        time_diffs_seconds = time_diffs / 1e9 if time_diffs.max() > 1e6 else time_diffs
+        # If already datetime, use total seconds from the first timestamp
+        data['time'] = (pd.to_datetime(data[time_column]) - pd.to_datetime(data[time_column].iloc[0])).dt.total_seconds()
+    
+    # Calculate time differences
+    time_diffs = data['time'].diff().dropna()
     
     # Calculate sampling rate statistics
-    sampling_rates = 1 / time_diffs_seconds
+    sampling_rates = 1 / time_diffs
     avg_sampling_rate = sampling_rates.mean()
     median_sampling_rate = sampling_rates.median()
     std_sampling_rate = sampling_rates.std()
@@ -50,13 +51,9 @@ def analyze_sampling_rate(data, time_column, data_name):
     max_sampling_rate = sampling_rates.max()
     
     # Calculate time span
-    total_duration = (data[time_column].max() - data[time_column].min())
-    if hasattr(total_duration, 'total_seconds'):
-        total_duration_seconds = total_duration.total_seconds()
-    else:
-        total_duration_seconds = total_duration / 1e9 if total_duration > 1e6 else total_duration
+    total_duration = data['time'].max() - data['time'].min()
     
-    print(f"Time span: {total_duration_seconds:.2f} seconds")
+    print(f"Time span: {total_duration:.2f} seconds")
     print(f"Average sampling rate: {avg_sampling_rate:.2f} Hz")
     print(f"Median sampling rate: {median_sampling_rate:.2f} Hz")
     print(f"Standard deviation: {std_sampling_rate:.2f} Hz")
@@ -67,18 +64,76 @@ def analyze_sampling_rate(data, time_column, data_name):
     fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(12, 8))
     
     # Plot 1: Time differences over time
-    ax1.plot(time_diffs_seconds.index, time_diffs_seconds, 'b-', alpha=0.7, linewidth=0.5)
-    ax1.axhline(time_diffs_seconds.mean(), color='red', linestyle='--', label=f'Mean: {time_diffs_seconds.mean():.4f}s')
-    ax1.set_xlabel('Sample Index')
+    ax1.plot(data['time'][1:], time_diffs, 'b-', alpha=0.7, linewidth=0.5)
+    ax1.axhline(time_diffs.mean(), color='red', linestyle='--', label=f'Mean: {time_diffs.mean():.4f}s')
+    ax1.set_xlim(0, data['time'].max())
+    ax1.set_xlabel('Time (s)')
     ax1.set_ylabel('Time Difference (seconds)')
     ax1.set_title(f'{data_name}: Time Between Samples')
-    ax1.legend()
     ax1.grid(True, alpha=0.3)
+    
+    # Add vertical lines for building model periods if column exists
+    if 'is_building_model' in data.columns:
+        # Find the start and end times of building periods
+        building_periods = []
+        in_building = False
+        start_time = None
+        
+        for idx, is_building in enumerate(data['is_building_model']):
+            if is_building and not in_building:
+                # Start of building period
+                start_time = data['time'].iloc[idx]
+                in_building = True
+            elif not is_building and in_building:
+                # End of building period
+                end_time = data['time'].iloc[idx-1]  # Use previous timestamp as end
+                building_periods.append((start_time, end_time))
+                in_building = False
+        
+        # Handle case where building period extends to the end
+        if in_building:
+            end_time = data['time'].iloc[-1]
+            building_periods.append((start_time, end_time))
+        
+        if building_periods:
+            # Add vertical lines at start and end of each building period
+            for i, (start_time, end_time) in enumerate(building_periods):
+                # Only add labels for the first occurrence of each type
+                start_label = 'Building Start' if i == 0 else ""
+                end_label = 'Building End' if i == 0 else ""
+                
+                ax1.axvline(x=start_time, color='green', alpha=0.7, linewidth=1, label=start_label)
+                ax1.axvline(x=end_time, color='gray', alpha=0.7, linewidth=1, label=end_label)
+                
+                # Add text label in the middle of the building period
+                mid_time = (start_time + end_time) / 2
+                
+                # Find the model_name for this building period
+                building_mask = (data['time'] >= start_time) & (data['time'] <= end_time) & (data['is_building_model'] == True)
+                if building_mask.any():
+                    model_names = data.loc[building_mask, 'model_name'].dropna().unique()
+                    if len(model_names) > 0:
+                        model_name = model_names[0]  # Use the first unique model name
+                        
+                        # Get y-axis limits for text positioning
+                        y_min, y_max = ax1.get_ylim()
+                        text_y = (y_min + y_max) / 2  # Middle of y-axis
+                        
+                        # Add text label
+                        ax1.text(mid_time, text_y, model_name, 
+                                ha='center', va='center', 
+                                bbox=dict(boxstyle="round,pad=0.3", facecolor="yellow", alpha=0.7),
+                                fontsize=8, rotation=90)
+            
+            print(f"Added {len(building_periods)} building periods with start/end lines and model labels")
+            print(f"Building periods: {building_periods}")
+    ax1.legend()
     
     # Plot 2: Sampling rate histogram
     ax2.hist(sampling_rates, bins=50, alpha=0.7, color='green', edgecolor='black')
     ax2.axvline(avg_sampling_rate, color='red', linestyle='--', label=f'Mean: {avg_sampling_rate:.2f} Hz')
     ax2.axvline(median_sampling_rate, color='orange', linestyle='--', label=f'Median: {median_sampling_rate:.2f} Hz')
+    ax2.set_xlim(0, None)
     ax2.set_xlabel('Sampling Rate (Hz)')
     ax2.set_ylabel('Frequency')
     ax2.set_title(f'{data_name}: Sampling Rate Distribution')
@@ -94,26 +149,35 @@ def analyze_sampling_rate(data, time_column, data_name):
         'std_rate': std_sampling_rate,
         'min_rate': min_sampling_rate,
         'max_rate': max_sampling_rate,
-        'total_duration': total_duration_seconds,
+        'total_duration': total_duration,
         'total_samples': len(data)
     }
 
 def main():
     """Main function to analyze sampling rates of eye and body data."""
     
+    print("Starting sampling rate analysis...")
+    
     # File paths
-    eye_data_path = "D:/LegoVR/unity-lego-vr/Other_than_in_project_files/ET_Data/P001_ET_Data_2025-07-31.csv"
+    eye_data_path = "D:/LegoVR/unity-lego-vr/Other_than_in_project_files/ET_Data/P001_ET_Data_2025-07-31_Condition1.csv"
     body_data_path = "D:/LegoVR/unity-lego-vr/Other_than_in_project_files/BT_Data/test_BT_Data_2025-07-31.csv"
+    
+    print(f"Looking for eye data at: {eye_data_path}")
+    print(f"Looking for body data at: {body_data_path}")
     
     # Check if files exist
     if not os.path.exists(eye_data_path):
-        print(f"Warning: Eye data file not found at {eye_data_path}")
-        print("Please update the file path in the script.")
+        print(f"ERROR: Eye data file not found at {eye_data_path}")
+        print("Please update the file path in the script or ensure the file exists.")
+        print("Available files in current directory:")
+        for file in os.listdir('.'):
+            if file.endswith('.csv'):
+                print(f"  - {file}")
         return
     
     if not os.path.exists(body_data_path):
-        print(f"Warning: Body data file not found at {body_data_path}")
-        print("Please update the file path in the script.")
+        print(f"ERROR: Body data file not found at {body_data_path}")
+        print("Please update the file path in the script or ensure the file exists.")
         return
     
     try:
@@ -130,6 +194,7 @@ def main():
         print(f"Body data columns: {list(body_data.columns)}")
         
         # Analyze eye data sampling rate
+        print("\nAnalyzing eye data...")
         eye_stats = analyze_sampling_rate(eye_data, 'gaze_capture_time', 'Eye Data')
         
         # Analyze body data sampling rate (using first column)
@@ -164,6 +229,8 @@ def main():
     except Exception as e:
         print(f"Error loading or analyzing data: {str(e)}")
         print("Please check the file paths and data format.")
+        import traceback
+        traceback.print_exc()
 
 if __name__ == "__main__":
     main() 
