@@ -4,6 +4,44 @@ import numpy as np
 from datetime import datetime
 import os
 
+def detect_timestamp_format(timestamps):
+    """
+    Detect the format of timestamp values based on the number of digits in a typical value.
+    
+    Args:
+        timestamps: pandas Series of timestamp values
+    
+    Returns:
+        str: 'seconds', 'milliseconds', 'microseconds', 'nanoseconds', or 'unknown'
+    """
+    if not pd.api.types.is_numeric_dtype(timestamps):
+        return 'unknown'
+    
+    # Get a sample of non-null values to determine the typical magnitude
+    sample = timestamps.dropna().head(100)
+    if len(sample) == 0:
+        return 'unknown'
+    
+    # Use the median value to get a representative timestamp
+    typical_value = sample.median()
+    
+    # Convert to string to count digits
+    typical_value_str = str(int(typical_value))
+    num_digits = len(typical_value_str)
+    
+    # Determine format based on the number of digits
+    # These ranges are based on standard Unix timestamp lengths
+    if 10 <= num_digits <= 11:
+        return 'seconds'
+    elif 12 <= num_digits <= 14:
+        return 'milliseconds'
+    elif 15 <= num_digits <= 17:
+        return 'microseconds'
+    elif 18 <= num_digits <= 20:
+        return 'nanoseconds'
+    else:
+        return 'unknown'
+
 def analyze_sampling_rate(data, time_column, data_name):
     """
     Analyze the sampling rate of a dataset using a time column.
@@ -22,6 +60,8 @@ def analyze_sampling_rate(data, time_column, data_name):
         print(f"Available columns: {list(data.columns)}")
         return None
     
+    print(f"First 5 timestamps from '{time_column}':\n{data[time_column].head().to_string(index=False)}")
+    
     # Convert time column to datetime if it's not already
     if data[time_column].dtype == 'object':
         try:
@@ -31,14 +71,27 @@ def analyze_sampling_rate(data, time_column, data_name):
             print(f"Warning: Could not convert {time_column} to datetime format")
             return None
     
-    # Calculate elapsed time in seconds since the beginning of the recording
-    if pd.api.types.is_integer_dtype(data[time_column]):
-        # If timestamp is in nanoseconds, convert to seconds
-        data['time'] = (data[time_column] - data[time_column].iloc[0]) / 1e9
+    # Detect timestamp format for numeric timestamps
+    if pd.api.types.is_numeric_dtype(data[time_column]):
+        timestamp_format = detect_timestamp_format(data[time_column])
+        print(f"Detected timestamp format: {timestamp_format}")
+        
+        # Convert to seconds based on detected format
+        if timestamp_format == 'seconds':
+            data['time'] = (data[time_column] - data[time_column].iloc[0])
+        elif timestamp_format == 'milliseconds':
+            data['time'] = (data[time_column] - data[time_column].iloc[0]) / 1000
+        elif timestamp_format == 'microseconds':
+            data['time'] = (data[time_column] - data[time_column].iloc[0]) / 1e6
+        elif timestamp_format == 'nanoseconds':
+            data['time'] = (data[time_column] - data[time_column].iloc[0]) / 1e9
+        else:
+            print(f"Warning: Unknown timestamp format. Assuming nanoseconds as a fallback.")
+            data['time'] = (data[time_column] - data[time_column].iloc[0]) / 1e9
     else:
         # If already datetime, use total seconds from the first timestamp
         data['time'] = (pd.to_datetime(data[time_column]) - pd.to_datetime(data[time_column].iloc[0])).dt.total_seconds()
-    
+
     # Calculate time differences
     time_diffs = data['time'].diff().dropna()
     
@@ -159,9 +212,9 @@ def main():
     print("Starting sampling rate analysis...")
     
     # File paths
-    eye_data_path = "D:/LegoVR/unity-lego-vr/Other_than_in_project_files/ET_Data/P001_ET_Data_2025-07-31_Condition1.csv"
-    body_data_path = "D:/LegoVR/unity-lego-vr/Other_than_in_project_files/BT_Data/test_BT_Data_2025-07-31.csv"
-    
+    eye_data_path = "D:/LegoVR/unity-lego-vr/Other_than_in_project_files/ET_Data/09_ET_Data_2025-08-29.csv"
+    body_data_path = "D:/LegoVR/unity-lego-vr/Other_than_in_project_files/BT_Data/09_BT_Data_2025-08-29.csv"
+
     print(f"Looking for eye data at: {eye_data_path}")
     print(f"Looking for body data at: {body_data_path}")
     
