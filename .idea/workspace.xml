@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0b0ad917-d125-4d98-bad0-99e9bcd2625e" name="Changes" comment="Preprocessing Function changed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eye-classification/notebooks/LEGO_analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/eye-classification/notebooks/LEGO_analysis.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eye-classification/notebooks/lego_vr_analysis_azad.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/eye-classification/notebooks/lego_vr_analysis_azad.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +104,7 @@
       <workItem from="1778349669179" duration="8748000" />
       <workItem from="1778679572966" duration="6079000" />
       <workItem from="1778928371784" duration="16896000" />
-      <workItem from="1779000728185" duration="11663000" />
+      <workItem from="1779000728185" duration="12980000" />
     </task>
     <task id="LOCAL‎۰۰۰۰۱" summary="Preprocessing Function changed">
       <created>1774195580499</created>
