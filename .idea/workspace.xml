@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b0ad917-d125-4d98-bad0-99e9bcd2625e" name="Changes" comment="Preprocessing Function changed">
-      <change beforePath="$PROJECT_DIR$/.idea/lego-vr-analysis.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/lego-vr-analysis.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eye-classification/notebooks/eye-tracking .ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/eye-classification/notebooks/eye-tracking .ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eye-classification/notebooks/LEGO_analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/eye-classification/notebooks/LEGO_analysis.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eye-classification/notebooks/lego_vr_analysis_azad.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/eye-classification/notebooks/lego_vr_analysis_azad.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,7 +63,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;jupyter.general.settings&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -98,7 +96,17 @@
       <workItem from="1772091595894" duration="73000" />
       <workItem from="1774261398692" duration="2612000" />
       <workItem from="1774269840181" duration="90704000" />
-      <workItem from="1775576381896" duration="15064000" />
+      <workItem from="1775576381896" duration="44973000" />
+      <workItem from="1776355634765" duration="24796000" />
+      <workItem from="1776601610081" duration="32637000" />
+      <workItem from="1777025766033" duration="1323000" />
+      <workItem from="1777109402183" duration="48085000" />
+      <workItem from="1777866923830" duration="9948000" />
+      <workItem from="1778349617163" duration="37000" />
+      <workItem from="1778349669179" duration="8748000" />
+      <workItem from="1778679572966" duration="6079000" />
+      <workItem from="1778928371784" duration="16896000" />
+      <workItem from="1779000728185" duration="11663000" />
     </task>
     <task id="LOCAL‎۰۰۰۰۱" summary="Preprocessing Function changed">
       <created>1774195580499</created>
