@@ -5,9 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b0ad917-d125-4d98-bad0-99e9bcd2625e" name="Changes" comment="Preprocessing Function changed">
-      <change afterPath="$PROJECT_DIR$/eye-classification/notebooks/body_tracking_azad.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eye-classification/notebooks/LEGO_analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/eye-classification/notebooks/LEGO_analysis.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eye-classification/notebooks/LEGO_analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/eye-classification/notebooks/lego_analysis.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eye-classification/notebooks/LEGO_analysis_all_participants.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/eye-classification/notebooks/lego_analysis_all_participants.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eye-classification/notebooks/body_tracking_Lisa.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eye-classification/notebooks/body_tracking_azad.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eye-classification/notebooks/bodytracking-preprocessing.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/eye-classification/notebooks/body_tracking_preprocessing.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eye-classification/notebooks/eye-tracking .ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/eye-classification/notebooks/eye_tracking_old_version.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eye-classification/notebooks/lego_vr_analysis_azad.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/eye-classification/notebooks/lego_merged_data_analysis.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eye-classification/notebooks/merge_et_bt.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/eye-classification/notebooks/merge_et_bt.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eye-classification/notebooks/preprocessing_and_classification_pipeline.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/eye-classification/notebooks/eye_tracking_preprocessing.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +119,10 @@
       <workItem from="1779556707512" duration="21570000" />
       <workItem from="1780217721969" duration="598000" />
       <workItem from="1780219075289" duration="8164000" />
-      <workItem from="1780240745028" duration="15860000" />
+      <workItem from="1780240745028" duration="16673000" />
+      <workItem from="1780320196948" duration="12543000" />
+      <workItem from="1780486853784" duration="8254000" />
+      <workItem from="1780586474799" duration="26512000" />
     </task>
     <task id="LOCAL‎۰۰۰۰۱" summary="Preprocessing Function changed">
       <created>1774195580499</created>
