@@ -1,0 +1,8 @@
+# Data — never push these
+input/
+output/
+
+# Jupyter / Python cruft
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
