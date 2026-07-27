@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b0ad917-d125-4d98-bad0-99e9bcd2625e" name="Changes" comment="" />
+    <list default="true" id="0b0ad917-d125-4d98-bad0-99e9bcd2625e" name="Changes" comment="Preprocessing Function changed">
+      <change afterPath="$PROJECT_DIR$/eye-classification/notebooks/grab_fixation_match_analysis_FIXED.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eye-classification/notebooks/body_tracking_preprocessing.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/eye-classification/notebooks/body_tracking_preprocessing.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eye-classification/notebooks/eye_tracking_preprocessing.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/eye-classification/notebooks/eye_tracking_preprocessing.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eye-classification/notebooks/lego_analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/eye-classification/notebooks/lego_analysis.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eye-classification/notebooks/lego_merged_data_analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/eye-classification/notebooks/lego_merged_data_analysis.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eye-classification/notebooks/merge_et_bt.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/eye-classification/notebooks/merge_et_bt.ipynb" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,23 +51,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "workflow",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/LegoVR/lego-vr-analysis",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;database.data.extractors.current.export.id&quot;: &quot;Comma-separated (CSV)_id&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/azad/Desktop/HiWi/lego-vr-analysis/eye-classification/notebooks&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;jupyter.general.settings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/eye-classification/notebooks" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -87,8 +103,31 @@
       <workItem from="1769797898401" duration="1523000" />
       <workItem from="1769800558468" duration="465000" />
       <workItem from="1772091595894" duration="73000" />
-      <workItem from="1773628072212" duration="2000" />
-      <workItem from="1782901703638" duration="521000" />
+      <workItem from="1774261398692" duration="2612000" />
+      <workItem from="1774269840181" duration="90704000" />
+      <workItem from="1775576381896" duration="44973000" />
+      <workItem from="1776355634765" duration="24796000" />
+      <workItem from="1776601610081" duration="32637000" />
+      <workItem from="1777025766033" duration="1323000" />
+      <workItem from="1777109402183" duration="48085000" />
+      <workItem from="1777866923830" duration="9948000" />
+      <workItem from="1778349617163" duration="37000" />
+      <workItem from="1778349669179" duration="8748000" />
+      <workItem from="1778679572966" duration="6079000" />
+      <workItem from="1778928371784" duration="16896000" />
+      <workItem from="1779000728185" duration="12980000" />
+      <workItem from="1779046570612" duration="14721000" />
+      <workItem from="1779447603384" duration="6234000" />
+      <workItem from="1779556707512" duration="21570000" />
+      <workItem from="1780217721969" duration="598000" />
+      <workItem from="1780219075289" duration="8164000" />
+      <workItem from="1780240745028" duration="16673000" />
+      <workItem from="1780320196948" duration="12543000" />
+      <workItem from="1780486853784" duration="8254000" />
+      <workItem from="1780586474799" duration="45868000" />
+      <workItem from="1781448073279" duration="19922000" />
+      <workItem from="1781770097817" duration="26464000" />
+      <workItem from="1782711299838" duration="1693000" />
     </task>
     <task id="LOCAL‎۰۰۰۰۱" summary="Preprocessing Function changed">
       <created>1774195580499</created>
