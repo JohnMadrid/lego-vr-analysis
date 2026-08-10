@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b0ad917-d125-4d98-bad0-99e9bcd2625e" name="Changes" comment="Preprocessing Function changed">
-      <change afterPath="$PROJECT_DIR$/eye-classification/notebooks/grab_fixation_match_analysis_FIXED.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eye-classification/notebooks/body_tracking_preprocessing.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/eye-classification/notebooks/body_tracking_preprocessing.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eye-classification/notebooks/eye_tracking_preprocessing.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/eye-classification/notebooks/eye_tracking_preprocessing.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eye-classification/notebooks/lego_analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/eye-classification/notebooks/lego_analysis.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eye-classification/notebooks/lego_merged_data_analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/eye-classification/notebooks/lego_merged_data_analysis.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eye-classification/notebooks/merge_et_bt.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/eye-classification/notebooks/merge_et_bt.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eye-classification/notebooks/lego_practice_Azad.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/eye-classification/notebooks/lego_practice_Azad.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eye-classification/notebooks/practice.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/eye-classification/notebooks/practice.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +123,12 @@
       <workItem from="1780586474799" duration="45868000" />
       <workItem from="1781448073279" duration="19922000" />
       <workItem from="1781770097817" duration="26464000" />
-      <workItem from="1782711299838" duration="1693000" />
+      <workItem from="1782711299838" duration="4384000" />
+      <workItem from="1783669927564" duration="18484000" />
+      <workItem from="1783857468746" duration="13024000" />
+      <workItem from="1783886895111" duration="15503000" />
+      <workItem from="1784644661219" duration="32579000" />
+      <workItem from="1785006512224" duration="51909000" />
     </task>
     <task id="LOCAL‎۰۰۰۰۱" summary="Preprocessing Function changed">
       <created>1774195580499</created>
