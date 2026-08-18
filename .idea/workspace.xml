@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b0ad917-d125-4d98-bad0-99e9bcd2625e" name="Changes" comment="Preprocessing Function changed">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eye-classification/notebooks/lego_practice_Azad.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/eye-classification/notebooks/lego_practice_Azad.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eye-classification/notebooks/practice.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/eye-classification/notebooks/practice.ipynb" afterDir="false" />
-    </list>
+    <list default="true" id="0b0ad917-d125-4d98-bad0-99e9bcd2625e" name="Changes" comment="Preprocessing Function changed" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -128,7 +124,7 @@
       <workItem from="1783857468746" duration="13024000" />
       <workItem from="1783886895111" duration="15503000" />
       <workItem from="1784644661219" duration="32579000" />
-      <workItem from="1785006512224" duration="51909000" />
+      <workItem from="1785006512224" duration="68275000" />
     </task>
     <task id="LOCAL‎۰۰۰۰۱" summary="Preprocessing Function changed">
       <created>1774195580499</created>
