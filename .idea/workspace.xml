@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b0ad917-d125-4d98-bad0-99e9bcd2625e" name="Changes" comment="Preprocessing Function changed">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="0b0ad917-d125-4d98-bad0-99e9bcd2625e" name="Changes" comment="Preprocessing Function changed" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,7 +53,7 @@
     "database.data.extractors.current.export.id": "Comma-separated (CSV)_id",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "/Users/azad/Desktop",
+    "last_opened_file_path": "/Users/azad/Desktop/HiWi/lego-vr-analysis/eye-classification/notebooks",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -67,8 +65,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/../.." />
       <recent name="$PROJECT_DIR$/eye-classification/notebooks" />
+      <recent name="$PROJECT_DIR$/../.." />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/eye-classification" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -130,6 +131,7 @@
       <workItem from="1785006512224" duration="68275000" />
       <workItem from="1786991751629" duration="49503000" />
       <workItem from="1789051492162" duration="45365000" />
+      <workItem from="1790491135595" duration="345000" />
     </task>
     <task id="LOCAL‎۰۰۰۰۱" summary="Preprocessing Function changed">
       <created>1774195580499</created>
